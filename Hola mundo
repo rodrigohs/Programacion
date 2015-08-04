@@ -1,0 +1,15 @@
+// autor: Rodrigo A Hurtado S
+// Fecha: 04/08/201
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+
+void main()
+{
+	cout << "Till i colapse";
+	getch();
+
+}
