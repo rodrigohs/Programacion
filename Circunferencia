@@ -1,0 +1,22 @@
+// circunferencia.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+
+int main() {
+	float a;
+	float p;
+	float t;
+    cout << "introduzca el radio" << endl;
+    cin >> a;
+	p= 3.1416;
+    t= p*a*a;
+    cout <<"el area de la circunferencia es"<< t << endl;
+	getch();
+    return 0;
+}
+
