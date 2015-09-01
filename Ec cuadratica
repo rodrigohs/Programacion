@@ -1,0 +1,46 @@
+// Autor: Rodrigo Hurtado Saucedo
+//Fecha: 01/09/15
+// Objetivo es realizar las operaciones cuadraticas mediante la formula.
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+int main ()
+{  
+	// Se declaran las variables
+	float a,b,c,D,x,x1,x2,xr,xi;
+	// Se ingresan los valores a,b,c coeficientes de la ecuacion cuadratica
+	cout<<"ingrese a:";
+	cin>>a;
+	cout<<"ingrese b:";
+	cin>>b;
+	cout<<"ingrese c:";
+	cin>>c;
+	//Se halla el valor de la raiz para saber si tiene una solucion, dos soluciones o es irreal
+	D=b*b-4*(a)*(c);
+	// se trabaja con un condicional para ver si tiene dos soluciones
+	if (D>0)
+	{
+		x1=-b+sqrt(D)/2*(a);
+		x2=-b-sqrt(D)/2*(a);
+		cout<<"Hay dos soluciones reales"<<x1<<x2;
+	}
+	else
+		// se trabaja con otro condicional cuando solo hay una solucion
+	if (D==0)
+	{
+		x=-b/2*(a);
+		cout<<"hay una solucion"<<x<<endl;
+	}
+	// SE dice que es imaginario si no cumple las ateriores condiciones
+	else {
+		xr=-b/2*(a);
+		cout<<"es real:"<<endl;
+		xi=sqrt(-D)/2*(a);
+		cout << "Soluciones Imaginarias"<<endl;
+		cout << "X1: "<<xr<<" + "<< xi << "i"<<endl;
+		cout << "X2: "<<xr<<" - "<< xi << "i"<<endl;
+	}
+	getch();
+	return 0;
+}
