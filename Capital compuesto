@@ -1,0 +1,24 @@
+// Interes
+//Autor: Rodrigo Hurtado
+//Fecha: 08/09/15
+
+#include "stdafx.h"
+#include<iostream>
+#include "conio.h"
+using namespace std;
+void main()
+{
+	int I,C,T;
+	float N;
+	cout<< "introduzca el capital inicial" <<endl;
+	cin>> C;
+	cout<< "introduzca latasa de interes" <<endl;
+	cin>> T;
+	cout<< "introduzca el numero de años" <<endl;
+	cin>>N;
+	I=C*pow(1+T,N);
+	cout<< "el interes compuesto es:"<<endl;
+	cout<< I; 
+	getch();
+}
+
