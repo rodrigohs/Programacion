@@ -1,0 +1,77 @@
+// Autor RHS
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+
+using namespace std;
+
+void main ()
+{
+
+ int n,opcion,N;
+ float numeros,suma;
+ do{
+    cout<<"\t Menu \t\n";
+    cout<<"1. promedio de numeros\n";
+    cout<<"2. mayor, menor, la mediana de N numeros\n";
+    cout<<"3. suma de digitos\n";
+	cout<<"0.salir";
+    cout<< "opcion";
+    cin>> opcion;
+	switch(opcion){
+	case 1:
+		cout<<"ingrese la cantidad de numeros: ";
+		cin>> n;
+		suma=0;
+		for(int i=1; i<=n; i++){
+		 cin>>numeros;
+		 suma=suma+numeros;
+		}
+		cout<<"El promedio es:"<< suma/n;
+		break;
+	case 2:
+		cout<<"ingrese la cantidad de numeros:";
+		cin>>n;
+		cin>>numeros;
+		float mayor,menor;
+		mayor=numeros;
+		menor=numeros;
+		suma=numeros;
+		for(int i=1; i<=n;i++){
+		 cin>>numeros;
+		 if(mayor<=numeros)
+			 mayor=numeros;
+		 else
+			 menor=numeros;
+		 suma=suma +numeros;
+		}
+		suma=suma-mayor-menor;
+		cout<<"el mayor es"<<mayor<<"\n";
+		cout<<"el menor es"<<menor<<"\n";
+		cout<<"la mediana es"<<suma/(n-2);
+		break;
+	case 3: 
+		cout<<" ingrese el digito ";
+		cin>>n;
+		suma=0;
+		do{
+			suma=suma+N%10;
+			N=N/10;
+		}while(N!=0);
+		cout<<"la suma de numeros es"<<suma;
+		break;
+	case 0: 
+		cout<<"saliendo\n";
+		break;
+	default :cout<<"error";
+		break;
+	}
+	getch();
+	 system("cls");
+ }while(opcion!=0);
+ getch();
+}
+
+
