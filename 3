@@ -1,0 +1,25 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+using namespace std;
+void main(){
+	int i;
+	float x, n,t, suma;
+	cout << "ingrese la cantidad de numeros" << endl;
+	cin >> n;
+	suma = 0;
+	t = 1;
+	cout << "ingrese los numeros a calcular" << endl;
+	for (i = 1; i <= n; i++){
+		cin >> x;
+		t = t*i;
+		suma = suma + (x / t);
+	}
+	
+	cout << "la suma es" << suma << endl;
+	_getch();
+}
+
+
