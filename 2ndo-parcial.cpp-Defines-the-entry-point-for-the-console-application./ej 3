@@ -1,0 +1,25 @@
+2ndo parcial.cpp : Defines the entry point for the console application.
+//Autor Rodrigo Hurtado
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+using namespace std;
+
+void main()
+{
+	int n;
+	cout<<"ingrese un numero natural mayor a 7000"<<endl;
+	cin>>n;
+	do{
+		if(n>7000){
+			for(int i=1;i<n;i=i+2)
+				cout<<"los numeros son"<<i<<endl;
+		}
+	}while(n<=7000);
+
+getch();
+
+
+}
