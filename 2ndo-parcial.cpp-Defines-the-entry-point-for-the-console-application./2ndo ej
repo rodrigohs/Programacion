@@ -1,0 +1,25 @@
+// 2ndo parcial.cpp : Defines the entry point for the console application.
+//Autor Rodrigo Hurtado
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+using namespace std;
+
+void main()
+{
+	int n,s,fac;
+	float x;
+	cout<<"ingrese un valor para x"<<endl;
+	cin>>n;
+	cout<<"ingrese x"<<endl;
+	s=2;
+	fac=1;
+	for(int i=1;i<=n;i++){
+		fac=fac*i;
+		s=s+(pow(x,i))/fac;
+		cout<<"la suma es de:"<<s<<endl;
+
+getch();
+
