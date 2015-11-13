@@ -1,0 +1,56 @@
+
+// cuadratica 2.cpp : Defines the entry point for the console application.
+// Rdorigo Hurtado
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+using namespace std;
+
+float discrimi(float a, float b, float c);
+float unica (float a,float b);
+void real(float a,float b,float c,float &x1, float &x2);
+void imaginario(float a , float b ,float c,float &xr,float &xi);
+
+void main()
+{
+    float a,b,c,x1,x2,xr,xi;
+    cout<<"ingrese los valores de a,b,c"<<endl;
+    cin>>a>>b>>c;
+    if (discrimi(a,b,c)==0)
+        cout<<"el valor de x es:"<<unica(a,b)<<endl;
+    else
+        if(discrimi(a,b,c)>0)
+        {
+            real(a,b,c,x1,x2);
+            cout<<"solucion real 1:"<<x1;
+            cout<<"solucion real 2:"<<x2;
+        }
+        else 
+        { 
+            imaginario(a,b,c,xr,xi);
+            cout<<"solucion imaginaria 1:"<<xr<<"+"<<xi<<endl;
+            cout<<"solucion imaginaria 2."<<xr<<"-"<<xi<<endl;
+        }
+        getch();
+}
+
+float discrimi ( float a, float b,float c)
+{
+    return b*b-4*a*c;
+}
+float unica(float a, float b)
+{
+    return -b/(2*a);
+}
+void real(float a, float b, float c,float &x1,float &x2)
+{
+    x1=(-b+sqrt(discrimi(a,b,c)))/(2*a);
+    x2=(-b-sqrt(discrimi(a,b,c)))/(2*a);
+}
+void imaginario(float a, float b , float c, float &xr,float&xi)
+{
+    xr= -b/(2*a);
+   xi=(sqrt(-discrimi(a,b,c))/(2*a));
+}
