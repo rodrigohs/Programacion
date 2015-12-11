@@ -1,0 +1,313 @@
+// Gassy.cpp : Defines the entry point for the console application.
+// Autores: Rodrigo Hurtado, Yan Marco Fuentes, Jorge Ibarra
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+
+
+using namespace std;
+
+void zona();
+void anillo(int a);
+void volver();
+void nortesegundo()
+{
+	cout << "Biopetrol(Av Beni a una cuadra del segundo anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Biopetrol(Av Alemana a una cuadra del segundo anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Surtidor Rivero(Av Banzer). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Genex VI (Av Banzer Esq. Guayacan). Gas" << endl << endl;
+}
+void sursegundo()
+{
+	cout << "Cañoto(Av Cañoto Esq Av el trompillo). Gas" << endl << endl;
+	cout << "Estacion de servicio sur(Av el trompillo Esq Santos Doumont). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Genex V(Av El Trompillo esq Escuadron Velasco). Gas-Gasolina" << endl << endl;
+	cout << "El Pary(Av Grigota). Gas" << endl << endl;
+	cout << "Santa Maria(Alto san pedro, Esq Av Tomas de lezo). Gas-Gasolina-Diesel" << endl << endl;
+}
+void estesegundo()
+{
+	cout << "Genex IV (Av Santa Cruz Esq Montes). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Choco Gas(Av Virgen de cotoca esq. Av perometral). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "GenexIII(Av Santa Cruz Esq Tarbo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "IPSEC( Terminal Bimodal). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "CN gas Mutualista(Av Mutualista Esq, calle pororos). Gas" << endl << endl;
+}
+void oestesegundo()
+{
+	cout << "La Cima(Av Bush 2ndo anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "La gotera(Av 26 de febrero esq Facundo Flores). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Genex II(Segundo anillo entre Av Grigota y Pirai). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "La Ramada(Av 26 de febrero Esq Isabela Catolica). Gas" << endl << endl;
+	cout << "El pary(Av Grigota). Gas" << endl << endl;
+}
+void nortetercero()
+{
+	cout << "Refineria oriental( Av alemana, calle totai). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Surtidor Clubol(3er anillo interno entre Av beni y alemana). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Genex I ( av Banzer 3er anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Gas Gas SA( Av banzer 3er anillo interno). Gas" << endl << endl;
+}
+void surtercero()
+{
+	cout << "El pary( Av grigota entre 2ndo y tercero). Gas" << endl << endl;
+	cout << "Santa Maria(Alto san pedro, tomas de lezo Esq. Tartagal). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "El trompillo( Av Juan Pablo Segundo Esq Calle A 21). Gas-Gasolina" << endl << endl;
+	cout << "Elisa SRL( Av San aurelio Esq tercer anillo interno). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Estacion de servicio nogales( Av Santos Doumont 3er anillo externo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "La morita(Av Santos Doumont 3800). Gas" << endl << endl;
+}
+void estetercero()
+{
+	cout << "IPSEC(Terminal Bimodal). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "CN GAS Mutualista(Av Mutualista Esq calle pororos). Gas" << endl << endl;
+	cout << "Tres pasos al Frente( Av 3 pasos al frente esq #er anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Guapay ( Av Guapay, 3er anillo externo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Z&Z.( Av Paragua esq 3er anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Tero Tero (Av Paragua entre 3er y 4to anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Genex Mutuaista( Av Mutualista, esq Calle 39). Gas-Gasolina-Diesel" << endl << endl;
+}
+void oestetercero()
+{
+	cout << "Gas Gas SA (3er anillo Av Canal isuto). Gas" << endl << endl;
+	cout << "E Arroyo ( Av Roca y coronado 3er anillo interno). Gas" << endl << endl;
+	cout << "D Gas ( Av Roca y coronado 3er anillo interno). Gas" << endl << endl;
+	cout << "Pirai (Av Roca y cornonado 3er anillo externo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Las Palmas ( Zona mercado Abasto). Gas-Gasolina" << endl << endl;
+	cout << "Refineria Oriental ( 3er anillo interno y Calle Angel Sandoval). Gas-Gasolina-Diesel" << endl << endl;
+}
+void nortecuarto()
+{
+	cout << "Vardona ( Av Bnzer 4to anillo). Gas-Gasolina-Diesel" << endl << endl;
+}
+void surcuarto()
+{
+	cout << "Morita ( Av Santos Doumont #3800). Gas" << endl << endl;
+	cout << "CGC (Av Santos Doumont 4to anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "La Cañada( AV San Aurelio 4to anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "San Luis(Radial 10 4to anillo). Gas-Gasolina-Diesel" << endl << endl;
+}
+void estecuarto()
+{
+	cout << "El Porvenir( Av Brasil 4to anillo) . Gas" << endl << endl;
+}
+void oestecuarto()
+{
+	cout << "Refineria Oriental ( Equipetrol 4to anillo). Gas" << endl << endl;
+	cout << "Surtidor Urubo ( Av Bush 4to anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Pigas ( Centenario 4to anillo). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Surtidor Los Mangales ( 4to anillo, entre radial 19 y Av pirai). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "3fOIL SRL ( 4to anillo entre Av pirai y Av radial 17). Gas-Gasolina-Diesel" << endl << endl;
+	cout << "Davila CGC ( 4to anillo entre Av grigota). Gas-Gasolina-Diesel" << endl << endl;
+}
+	void main()
+{
+	system("color FC");
+	cout << "\t B I E N V E N I D O S   A   G A S S Y \n";
+	cout << "_____________________________________________________________\n";
+	cout << "\t Acerca de nosotros \n";
+	cout << "Somos una empresa que brinda el servicio que soluciona a una de sus\nprincipales necesidades: LA BUSQUEDA DE GAS NATURAL O GASOLINA." << endl;
+	cout << "Disfrute de Gasy." << endl << "PRESIONE CUALQUIER TECLA PARA CONTINUAR" << endl;
+	_getch();
+	system("cls");
+	zona();
+}
+
+void zona() {
+	int option;
+	do {
+		cout << "Ingrese en que zona se encuentra: " << endl;
+		cout << "Opcion 1. Norte" << endl;
+		cout << "Opcion 2. Sur" << endl;
+		cout << "Opcion 3. Este" << endl;
+		cout << "Opcion 4. Oeste" << endl;
+		cout << "Opcion 0. Salir del programa" << endl;
+		cout << "Opcion: ";
+		cin >> option;
+			switch (option) {
+			case 1:
+				system("cls");
+				anillo(option);
+				break;
+			case 2:
+				system("cls");
+				anillo(option);
+				break;
+			case 3:
+				system("cls");
+				anillo(option);
+				break;
+			case 4:
+				system("cls");
+				anillo(option);
+				break;
+			case 0:
+				cout << "Saliendo del programa";
+				_getch();
+				exit(0);
+				break;
+			default:
+				system("cls");
+				cout << "Opcion invalida" << endl;
+				_getch();
+				system("cls");
+				break;
+			}
+	} while (option != 0);
+	_getch();
+}
+void anillo(int a) {
+	int option;
+	do {
+		cout << "Ingrese aproximadamente cerca de que anillo se encuentra: " << endl;
+		cout << "Opcion 1. 	2do Anillo" << endl;
+		cout << "Opcion 2.	3er Anillo" << endl;
+		cout << "Opcion 3. 	4to Anillo" << endl;
+		cout << "Opcion 4.  Volver" << endl;
+
+		cout << "Opcion 0. Salir del programa" << endl;
+		cout << "Opcion: ";
+		cin >> option;
+		switch (option) {
+		case 1:
+			system("cls");
+			switch (a) {
+			case 1:
+				cout << "SUs opciones son: " << endl;
+				nortesegundo();
+				_getch();
+				system("cls");
+				volver();
+
+				break;
+			case 2:
+				cout << "SUs opciones son: " << endl;
+				sursegundo();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			case 3:
+				cout << "SUs opciones son: " << endl;
+				estesegundo();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			case 4:
+				cout << "SUs opciones son: " << endl;
+				oestesegundo();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			}
+			break;
+		case 2:
+			system("cls");
+			switch (a) {
+			case 1:
+				cout << "SUs opciones son: " << endl;
+				nortetercero();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			case 2:
+				cout << "SUs opciones son: " << endl;
+				surtercero();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			case 3:
+				cout << "SUs opciones son: " << endl;
+				estetercero();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			case 4:
+				cout << "SUs opciones son: " << endl;
+				oestetercero();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			}
+			break;
+		case 3:
+			system("cls");
+			switch (a) {
+			case 1:
+				cout << "SUs opciones son: " << endl;
+				nortecuarto();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			case 2:
+				cout << "SUs opciones son: " << endl;
+				surcuarto();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			case 3:
+				cout << "SUs opciones son: " << endl;
+				estecuarto();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			case 4:
+				cout << "SUs opciones son: " << endl;
+				oestecuarto();
+				_getch();
+				system("cls");
+				volver();
+				break;
+			}
+			break;
+		case 4:
+			system("cls");
+			cout << "Volver";
+			system("cls");
+			zona();
+			break;
+		case 0:
+			system("cls");
+			cout << "Saliendo del programa";
+			exit(0);
+		default:
+			system("cls");
+			cout << "Opcion invalida";
+			break;
+		}
+		_getch();
+		system("cls");
+	} while (option != 0);
+	_getch();
+}
+
+void volver() {
+	int option1;
+	cout << "Desea volver al menu principal?" << endl;
+	cout << "Opcion 1. Si" << endl;
+	cout << "Aprete cualquier tecla para salir" << endl;
+	cin >> option1;
+	if (isdigit(option1) != 0) {
+		cout << "Opcion invalida y saliendo del programa porque no presta atencion a las opciones";
+		exit(0);
+	}
+	switch (option1) {
+	case 1:
+		system("cls");
+		zona();
+		break;
+	default:
+		exit(0);
+	}
+}
