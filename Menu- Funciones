@@ -1,0 +1,171 @@
+#include <iostream>
+#include <conio.h>
+#include  <math.h>
+
+using namespace std;
+
+int contarDigitos(int n) {
+	int i;
+	for(i=0;n>0;i++){
+		n=n/10;
+	}
+	return(i);
+}
+int sumarDigitos(int n){
+	int s=0,d;
+	for(int i=0;n>0;i++){
+		d=n%10;
+		s=s+d;
+		n=n/10;
+	}
+	return(s);
+}
+int invertirNumero(int n){
+	int d,newnro=0;
+	while(n>0){
+		d=n%10;
+		newnro=(newnro*10)+d;
+		n=n/10;
+	}
+return(newnro);
+}
+bool verifiSiesPrimo(int n){
+	bool k=true;
+		for(int i=2;i<=n-1;i++){
+			if(n%i==0){
+				k=false;
+			}
+		}
+return(k);
+}
+
+int sumarDigPrimos(int n){
+	int d,s=0;
+	while(n>0){
+		d=n%10;
+	if(verifiSiesPrimo(d)==true){
+		s=s+d;
+	}
+	n=n/10;
+	}
+	return(s);
+}
+
+int concatenar(int a, int b){
+	return(a*powf(10,contarDigitos(b))+b);
+}
+
+int verifiOrdenado(int n){
+	int k=1,d,e,m;
+	d=n%10;
+	m=n;
+	while(n>0){
+		while(m>0){
+			e=m%10;
+			if(e>d){
+				k=0;
+			}
+			m=m/10;
+		}
+		n=n/10;
+		m=n;
+		d=n%10;
+	}
+return(k);
+}
+
+int sumaDigPrimos(int n){
+	int a,s=0,men,d;
+   a=invertirNumero(n);
+   men=a%10;
+   s=s+men;
+   a=a/10;
+   while(a>0){
+	   d=a%10;
+	   if(d>men){
+		   s=s+d;
+		   men=d;
+	   }
+	   a=a/10;
+   }
+   return(s);
+}
+
+void main(){
+	int opcion,a,n,b;
+	do{
+		cout<<"               Tarea de algoritmos                 "<<endl;
+		cout<<"1. Calcular digitos de un numero:"<<endl;
+		cout<<"2. Sumar digitos de un numero:"<<endl;
+		cout<<"3. Invertir numero:"<<endl;
+		cout<<"4. Verificar si es numero primo:"<<endl;
+		cout<<"5. Sumar digitos primos:"<<endl;
+		cout<<"6. Concatenar numeros:"<<endl;
+		cout<<"7. Verificar numero ordenador:"<<endl;
+		cout<<"8. Sumar digitos ordenados:"<<endl;
+		cout<<"9. SALIR, CHAU"<<endl;
+		cout<< "ingrese su opcion"<<endl;
+		cin>>opcion;
+	}
+	while(opcion<1||opcion>9);
+	switch(opcion){
+	case 1: cout<<"Ingrese el numero que quiere contar;"<<endl;
+	        cin>>n;
+		
+		a=contarDigitos(n);
+		cout<<"El resultado es: "<<a<<endl;
+		break;
+	case 2: cout<< " Ingrese el numero que quiere sumar "<<endl;
+		cin>>n;
+		a=sumarDigitos(n);
+		cout<<"El resultado es "<<a<<endl;
+		break;
+	case 3: cout<<"Ingresa el numero que quiera invertir "<<endl;
+		cin>>n;
+		a=invertirNumero( n);
+		cout<<" El resultado es: "<<a<<endl;
+		break;
+	case 4: cout<<"Ingrese el numero que quiere verificar"<<endl;
+		cin>>n;
+			if(verifiSiesPrimo(n)==true)
+		{cout<<"su numero es primo"<<endl;
+		}
+		else{
+		cout<<" Su numero no es primo"<<endl;
+		}
+		break;
+	case 5: cout<<" Ingrese el numero a sumar"<<endl;
+		cin>>n;
+		a=sumarDigPrimos(n);
+		cout<<"El resultado es: "<<a<<endl;
+		break;
+	case 6: cout<<"Ingrese el primer numero"<<endl;
+		cin>>a;
+		cout<<"ingrese el segundo"<<endl;
+		cin>>b;
+		n=concatenar(a,b);
+		cout<<" El numero concatenado es "<<n<<endl;
+		break;
+	case 7: cout<<"ingrese el numero"<<endl;
+		cin>>n;
+		if(verifiOrdenado(n)==true)
+		{cout<<"su numero si esta ordenado"<<endl;
+		}
+		else{
+		cout<<" Su numero no esta ordenado"<<endl;
+		}
+		break;
+	case 8: cout<<"ingrese el numero"<<endl;
+		cin>>n;
+		a=sumaDigPrimos(n);
+		cout<<" El resultado es"<<a<<endl;
+		break;
+	case 9: cout<<" Yala tu madre"<<endl;
+		break;
+	}
+
+getch();
+}
+
+    
+
