@@ -1,0 +1,102 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+#define FIL 20
+#define COL 20
+void cargar (int mat[FIL][COL],int n,int m){
+	int i,j;
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			cout<<"introducir dato para mat["<<i<<"]["<<j<<"] :";
+			cin>>mat[i][j];
+		}
+	}
+	
+}
+void mostrar(int mat[FIL][COL],int n, int m){
+
+	int i,j;
+	cout<<"El contenido de la matriz es"<<endl;
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			cout<< mat[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+
+
+}
+int obtElemMayor (int mat[FIL][COL],int n, int m){
+	int i, j, may=mat[0][0];
+	for(i=0;i<n;i++){
+	   for(j=0;j<m;j++){
+		 if(mat[i][j]>may){
+			may= mat[i][j];
+		}
+	  }
+	}
+	return(may);
+}
+void ordenarVector(int vec[],int n){
+	int i,j,aux;
+	for(i=0;i<n;i++){
+		for(j=n+1;j<n;j++){
+			if(vec[i]>vec[j]){
+				aux=vec[i];
+				vec[i]=vec[j];
+				vec[j]=aux;
+			}
+		}
+	}
+}
+void ordenarPorFilas(int mat[FIL][COL],int n,int m){
+	int i;
+	for(i=0;i<n;i++){
+		ordenarVector(mat[i],m);
+	}
+}
+bool verifiSiEsPrimo(int n){
+	int i;
+	bool k=true;
+	for(i=2;i<n;i++){
+		if(n%i==0){
+			k=false;
+		}
+	}
+	return(k);
+}
+void mostrarVector(int vec[],int n){
+int i;
+cout<<"el contenido del vector es";
+for (i=0;i<n;i++){
+	cout<<vec[i]<<" ";
+ }
+}
+void sumarPorFilaLosPrimos(int mat[FIL][COL],int n,int m,int vec[]){
+	int i,j;
+	for(i=0;i<n;i++){
+		vec[i]=0;
+		for(j=0;j<m;j++){
+			if(verifiSiEsPrimo(mat[i][j]==true)){
+				vec[i] += mat[i][j];
+			}
+		}
+	}
+}
+void main(){
+	int nroFil,nroCol,matriz[FIL][COL],vec[COL];
+	cout<<"Numeros de filas?"<<endl;
+	cin>>nroFil;
+	cout<<"Numeros de columnas"<<endl;
+	cin>>nroCol;
+	cargar(matriz,nroFil,nroCol);
+	mostrar(matriz, nroFil,nroCol);
+	cout<<"el mayor numero es"<< obtElemMayor(matriz,nroFil,nroCol);
+	ordenarPorFilas(matriz,nroFil,nroCol);
+	mostrar(matriz, nroFil,nroCol);
+	sumarPorFilaLosPrimos(matriz,nroFil,nroCol,vec);
+	mostrarVector(vec,nroFil);
+	getch();
+
+}
