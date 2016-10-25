@@ -1,0 +1,58 @@
+#include <conio.h>
+#include <stdio.h>
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct regAmigo{
+	char nombre[30];
+	int edad;
+	char sexo;
+	char estado;
+};
+
+void adicionarAmigo(){
+FILE *ptr;// declara variable puntero del archivo
+regAmigo reg;
+do{
+cout<<"introducir nombre: ";
+gets(reg.nombre);
+}while(strlen(reg.nombre)==0);
+do{
+
+cout<<"edad: ";
+cin>>reg.edad;
+}while(reg.edad<1|| reg.edad>120);
+do{
+
+cout<<"Sexo<F/M>: ";
+cin>>reg.sexo;
+}while(reg.sexo != 'F'&& reg.sexo !='M');
+reg.estado= 'A';
+
+ptr=fopen("amigos.dat","ab");//abre el archivo para adicionar registro
+fwrite(&reg,sizeof(reg),1,ptr);// Escribe un registro en un archivo
+fclose(ptr);//cierra el archivo
+}
+void listarAmigo(){ //Muestra el contenido del archivo
+FILE *ptr;// declara variable puntero del archivo
+regAmigo reg;
+
+ptr=fopen("amigos.dat","rb");//abre el archivo en modo solo lectua
+if(ptr != NULL){
+fread(&reg,sizeof(reg),1,ptr);// lee registro desde el archivo
+while(feof(ptr)==false){//mientras no sea el final del archivo
+	cout<<endl<<reg.nombre<<" "<<reg.edad<<"  "<< reg.sexo;
+	fread(&reg,sizeof(reg),1,ptr);//lee registro desde archivo
+}
+fclose(ptr);//cierra el archivo
+}else{
+	cout<<"El archivo no existe C....!";
+}
+}
+
+void main(){
+	//adicionarAmigo();
+	listarAmigo();
+	getch();
+}
