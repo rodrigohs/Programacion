@@ -1,0 +1,132 @@
+#include <iostream>
+#include <conio.h>
+#include <string.h>
+#include <stdio.h>
+using namespace std;
+
+struct regProducto{
+	int idProd;
+	char nombre[30];
+	int stock;
+	int precio;
+	char estado;
+};
+
+struct regVenta {
+	int idVenta;
+	int idProd;
+	int cantidad;
+	int idCliente;
+	char estado;
+};
+struct regCompra{
+	int idCompra;
+	int idProd;
+	int cantidad;
+    
+	char estado;
+void adicionarProducto(){
+	FILE*ptr;
+	regProducto reg;
+	cout<<"Introducir Idprod:";
+	cin>> reg.idProd;
+	cout<<"Nombre del producto:";
+	do{
+		gets(reg.nombre);
+	}while(strlen(reg.nombre)==0);
+	cout<<"Precio?:";
+	cin>> reg.precio;
+	reg.stock=0;
+	reg.estado='A';
+	ptr=fopen("producto.dat","ab");
+	fwrite(&reg,sizeof(reg),1,ptr);
+	fclose(ptr);
+}
+void listadoDeProductos(){
+	FILE*ptr;
+	regProducto reg;
+	ptr= fopen("producto.dat","rb");
+	if(ptr!=NULL){
+		cout<<"\n\nLISTADO DE PRODUCTOS\n";
+		fread(&reg,sizeof(reg),1,ptr);
+		while(feof(ptr)== false){
+			if(reg.estado= 'A'){
+				cout<<endl<<reg.idProd<<"\t"<<reg.nombre<<"\t"<<reg.stock<<"\t"<<reg.precio;
+			}
+
+       fread(&reg,sizeof(reg),1,ptr);
+		}
+		fclose(ptr);
+	}else{
+		cout<<"El archivo no existe";
+	}
+}
+bool verifSiexisteProducto(int ip){
+	FILE*ptr;
+	regProducto reg;
+	bool k=false;
+	ptr= fopen("producto.dat","rb");
+	if(ptr!=NULL){
+	fread(&reg,sizeof(reg),1,ptr);
+	while(feof(ptr)== false){
+		if(reg.estado= 'A' && reg.idProd==ip){
+		k= true;
+		}
+		fread(&reg,sizeof(reg),1,ptr);
+	}
+	fclose(ptr);
+	}else{
+		cout<<"No existe";
+	}
+	return(k);
+}
+
+bool verificarStockDisponible(int ip, int cantAvend){
+	FILE*ptr;
+	regProducto reg;
+	bool k=false;
+	ptr= fopen("producto.dat","rb");
+	if(ptr!=NULL){
+	fread(&reg,sizeof(reg),1,ptr);
+	while(feof(ptr)== false){
+		if(reg.estado= 'A' && reg.idProd==ip && reg.stock >= cantAvend){
+		k= true;
+		}
+		fread(&reg,sizeof(reg),1,ptr);
+	}
+	fclose(ptr);
+	}else{
+		cout<<"No existe";
+	}
+	return(k);
+}
+void adicionarVenta(){
+	FILE*ptr;
+	regVenta reg;
+	cout<<"Introducir IdVenta:";
+	cin>> reg.idVenta;
+	do{
+		cout<<"introducir Id producto";
+		cin>>reg.idProd;
+	}while(verifSiexisteProducto(reg.idProd)==false);
+	do{
+	cout<<"Cantidad?";
+	cin>>reg.cantidad;
+	}while(verificarStockDisponible(reg.idProd,reg.cantidad)== false);
+	cout<<"introducir Id del cliente: ";
+	cin>> reg.idCliente;
+	reg.estado = 'A';
+	ptr=fopen("ventas.dat","ab");
+	fwrite(&reg,sizeof(reg),1,ptr);
+	fclose(ptr);
+}
+
+void main(){
+
+	//adicionarProducto();
+	listadoDeProductos();
+	cout<<""<<endl;
+	adicionarVenta();
+getch();
+}
+
