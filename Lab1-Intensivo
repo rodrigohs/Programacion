@@ -1,0 +1,136 @@
+#include <iostream>
+#include <conio.h>
+#include <math.h>
+using namespace std;
+
+
+int contarDigitos(int n){
+	int c=0;
+	while(n>0){
+		n=n/10;
+		c++;
+	}
+	return(c);
+}
+int contarImpares(int n){
+	int c=0,d;
+	while(n>0){
+		c=n%10;
+		if((c%2)!=0){
+			d++;
+		}
+		n=n/10;
+	}
+	return (d);
+}
+bool verifiSiEsPrimo(int n){
+	int i;
+	bool k=true;
+	for(i=2;i<n;i++){
+		if(n%i==0){
+			k=false;
+			i=n;
+		}
+	}
+	return(k);
+}
+int invertir(int n){
+	int a,newnro=0;
+	while(n>0){
+		a=n%10;
+		newnro=(newnro*10)+a;
+		n=n/10;
+	}
+	return(newnro);
+}
+int eliminarPrimos(int n){
+	int a,newnro=0;
+	while(n>0){
+		a=n%10;
+		if(verifiSiEsPrimo(n)== false){
+			newnro=(newnro*10)+a;
+			n=n/10;
+		}
+		n=n/10;
+	}
+	return(invertir(newnro));
+}
+int nsimoPrimo(int n){
+	int num=0,d=0;
+	do{
+		num=num+1;
+		if(verifiSiEsPrimo(num)== true){
+			d++;
+		}
+	}while(d<=n);
+		return (num);
+}
+int concatenar(int a, int b){
+	return(a*powf(10,contarDigitos(b))+b);
+}
+bool Capicua(int n){
+	bool k= true;
+	 if(invertir(n)!=n){
+		 k=false;
+	 }
+	 return (k);
+}
+	void main(){
+	int opcion,a,n,b;
+	do{
+		cout<<"               Tarea de algoritmos                 "<<endl;
+		cout<<"1. Contar digitos de un numero:"<<endl;
+		cout<<"2. Contar digitos impares de un numero:"<<endl;
+		cout<<"3. Verificar primo"<<endl;
+		cout<<"4. Eliminar digitos primos"<<endl;
+		cout<< "5. nesimo Primo"<<endl;
+		cout<< "6 Capicua:";
+        cout<<"7. SALIR, CHAU"<<endl;
+		cout<< "ingrese su opcion"<<endl;
+		cin>>opcion;
+	}
+	while(opcion<1||opcion>6);
+switch(opcion){
+
+	case 1: cout<<"Ingrese el numero que quiere contar;"<<endl;
+	        cin>>n;
+		
+		a=contarDigitos(n);
+		cout<<"El resultado es: "<<a<<endl;
+		break;
+	case 2: cout<<"Ingrese el numero natural a contar: ";
+		cin>>n;
+		a=contarImpares(n);
+		cout<<"El resultado es: "<<a;
+		break;
+	case 3: if(verifiSiEsPrimo(n)==true)
+				cout<<"El numero : "<<n<<",Es primo";
+			else
+				cout<<"El numero : "<<n<<",No es primo";
+		break;
+	case 4:
+		cout<<"Ingrese el numero : ";
+		cin>>n;
+		a=eliminarPrimos(n);
+		break;
+	case 5: 
+		cout<<"Ingrese el numero que quiere generar en primo : ";
+		cin>>n;
+		a=nsimoPrimo(n);
+		cout<<"El numero primo es: "<<a;
+		break;
+	case 6:
+		cout<<"ingrese el numero";
+		if(Capicua(n)==true){
+			cout<<"Es capicua";
+		}
+		else
+			cout<<"no es";
+		break;
+		
+	case 7: 
+		cout<<"Cerrando!!!!";
+		break;
+}
+getch();
+}
