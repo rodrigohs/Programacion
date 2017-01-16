@@ -1,0 +1,98 @@
+#include <iostream>
+#include <conio.h>
+#include <string.h>
+
+using namespace std;
+
+int contarVocales(char cad[]){
+	int i, n= strlen(cad),c=0;
+	for(i=0;i<n;i++){
+		if(cad[i]=='a'||cad[i]=='e'||cad[i]=='i'||cad[i]=='o'||cad[i]=='u'||cad[i]=='A'||cad[i]=='E'||cad[i]=='I'||cad[i]=='O'||cad[i]=='U'){
+			c++;
+		}
+	}
+return(c);
+}
+void copiarVocales(char cad[],char cad2[]){
+int i,i2=0,n=strlen(cad);
+for(i=0;i<n;i++){
+	if(cad[i]=='a'||cad[i]=='e'||cad[i]=='i'||cad[i]=='o'||cad[i]=='u'||cad[i]=='A'||cad[i]=='E'||cad[i]=='I'||cad[i]=='O'||cad[i]=='U'){
+		cad2[i2]==cad[i];
+		i2++;
+	}
+}
+	
+cad2[i2]='\0';
+
+}
+void eliminarVocales(char cad[]){
+	int i,n=strlen(cad);
+	for(i=0;i<n;i++){
+		if(cad[i]=='a'||cad[i]=='e'||cad[i]=='i'||cad[i]=='o'||cad[i]=='u'||cad[i]=='A'||cad[i]=='E'||cad[i]=='I'||cad[i]=='O'||cad[i]=='U'){
+			for(int k=i;k<n-1;k++){
+				cad[k]=cad[k+1];
+			}
+			n--;
+			i--;
+		}
+	}
+	cad[n]= '\0'; 
+}
+int contadorDePalabras(char cad[]){
+	int i,n=strlen(cad),c=0;
+	for(i=0;i<n;i++){
+		if(cad[i]==' '){
+			c++;
+		}
+	}
+	return(c+1);
+}
+void invertir(char cad[]){
+	int i,n=strlen(cad);
+	char aux;
+	for(int i=0;i<n/2;i++){
+		aux=cad[i];
+		cad[i]=cad[n-1-i];
+		cad[n-1-i]=aux;
+	}
+}
+bool verifiSiEsCapicua(char cad[]){
+	char aux[100];
+	strcpy(aux,cad);
+	invertir(cad);
+	if(strcmp(cad,aux)==0)
+		return(true);
+	else
+		return(false);
+	}
+int contarCapicua(char cad[]){
+	int cpc=0,i,n=strlen(cad),ip=0;
+	char palabra[20];
+	for(i=0;i<n;i++){
+		if(cad[i]!=' '){
+			palabra[ip]=cad[i];
+			ip++;
+		}else{
+			palabra[ip]= '\0';
+			if(verifiSiEsCapicua(palabra)==true){
+				cpc++;
+			}
+			ip=0;
+		}
+	}
+	palabra[ip]='\0';
+	if(verifiSiEsCapicua(palabra)==true){
+		cpc++;
+	}
+	return(cpc);
+}
+
+void main(){
+	char cad1[100],cad2[100];
+	int d;
+cout<<"Introduzca la cadena : "<<endl;
+gets(cad1);
+d=contadorDePalabras(cad1);
+cout<<"El numero de palabras es : "<<d;
+getch();
+}
