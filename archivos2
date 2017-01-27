@@ -1,0 +1,90 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <string.h>
+ using namespace std;
+
+ struct regProductos{
+	 int idProd;
+	char nombre[30];
+	int stock;
+	int precio;
+ };
+ struct regVentas{
+	 int idVenta;
+	 char fecha[30];
+	 int idProd;
+	 int cantidad;
+	int idCliente;
+ };
+ void cargarProductos(){
+	 FILE *ptr;
+	 regProductos reg;
+	 cout<<" Id de producto? ";
+	 cin>>reg.idProd;
+	 cout<<" Nombre? : ";
+	cin>>reg.nombre;
+	 cout<<" Stock";
+	 cin>>reg.stock;
+	 cout<<"Precio? : ";
+	 cin>>reg.precio;
+	 ptr= fopen("producto.dat","ab");
+	 fwrite(&reg,sizeof(reg),1,ptr);
+	 fclose(ptr);
+ }
+ void listarProductos(){
+	 FILE *ptr;
+	 regProductos reg;
+	 cout<<"                LISTADO DE PRODUCTOS                 ";
+	 ptr=fopen("producto.dat","rb");
+	 if(ptr !=NULL){
+		 fread(&reg,sizeof(reg),1,ptr);
+		 while(feof(ptr)== false){
+			 cout<<endl<<reg.idProd<<" "<<reg.nombre<<" "<<reg.stock<<" "<<reg.precio;
+			 fread(&reg,sizeof(reg),1,ptr);
+		 }
+		 fclose(ptr);
+	 }else{
+		 cout<<"EL ARCHIVO NO EXISTE";
+	 }
+ }
+ void cargarVentas(){
+	 FILE *ptr;
+	 regVentas regV;
+	 cout<<" Id de venta? ";
+	 cin>>regV.idVenta;
+	 cout<<" Fecha? " ;
+	cin>>regV.fecha;
+	 cout<<" idproducto? :";
+	 cin>>regV.idProd;
+	 cout<<"Cantidad? : ";
+	 cin>>regV.cantidad;
+	 cout<<"Id cliente? : ";
+	 cin>>regV.idCliente;
+	 ptr= fopen("ventas.dat","ab");
+	 fwrite(&regV,sizeof(regV),1,ptr);
+	 fclose(ptr);
+ }
+ void listarVentas(){
+	 FILE *ptr;
+	 regVentas regV;
+	 cout<<"                LISTADO DE VENTAS                 ";
+	 ptr=fopen("ventas.dat","rb");
+	 if(ptr !=NULL){
+		 fread(&regV,sizeof(regV),1,ptr);
+		 while(feof(ptr)== false){
+			 cout<<endl<<regV.idVenta<<" "<<regV.fecha<<" "<<regV.idProd<<" "<<regV.cantidad<<" "<<regV.idCliente;
+			 fread(&regV,sizeof(regV),1,ptr);
+		 }
+		 fclose(ptr);
+	 }else{
+		 cout<<"EL ARCHIVO NO EXISTE";
+	 }
+ }
+ void main(){
+	//cargarProductos();
+	 //listarProductos();
+	 //cargarVentas();
+	 listarVentas();
+	 getch();
+ }
